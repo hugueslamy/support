@@ -1,0 +1,25 @@
+= form_for @incident, html: {role: 'form'} do |f|
+  - if @incident.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@incident.errors.count, "error")} prohibited this incident from being saved:"
+      %ul
+        - @incident.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :requestor_name
+    = f.text_field :requestor_name, class: "form-control"
+  .field
+    = f.label :requestor_email
+    = f.email_field :requestor_email, class: "form-control"
+  .field
+    = f.label :departement
+    = f.select :departement_id, Departement.all.collect {|d| [ d.name, d.id ] }, {prompt: t('incidents.form.select.blank')}, class: 'form-control'
+  .field
+    = f.label :title
+    = f.text_field :title, class: "form-control"
+  .field
+    = f.label :body
+    = f.text_area :body, class: "form-control"
+  .actions
+    = f.submit t('common.save')

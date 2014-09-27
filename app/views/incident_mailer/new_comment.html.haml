@@ -1,0 +1,11 @@
+!!!5
+%html
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', http: { equiv: 'Content-Type'}}
+  %body
+    %h1= t('incident_mailer.new_comment.title')
+    %p
+      = t('incident_mailer.new_comment.body')
+      = link_to t('incident_mailer.new_comment.code'), code_incident_url(code: @incident.code)
+    %p
+      The IT team

@@ -1,0 +1,6 @@
+- if current_user
+  = form_for @incident, html: {class: 'form'} do |f|
+    = f.select( :assignee_id, User.all.collect {|u| [ u.email, u.id ] }, { include_blank: true } )
+    = f.submit t('common.save'), class: 'btn btn-default btn-xs'
+- else
+  = @incident.assignee.email

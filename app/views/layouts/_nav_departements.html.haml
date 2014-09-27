@@ -1,0 +1,9 @@
+%a.dropdown-toggle{ href: "#", data: {toggle: :dropdown }}
+  = t('layouts.nav.departements')
+  %span.caret
+%ul.dropdown-menu{ role: :menu }
+  %li
+    = link_to t('layouts.nav.create_new'), new_departement_path
+  %li
+    = link_to t('layouts.nav.list_all_departements'), departements_path
+

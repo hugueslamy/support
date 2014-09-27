@@ -1,0 +1,16 @@
+%nav.navbar.navbar-default.navbar-fixed-top{ role: :navigation }
+  .container-fluid
+    %ul.nav.navbar-nav{ "data-no-turbolink" => 'true' }
+      %li.dropdown
+        = render 'layouts/nav_incidents'
+      %li.dropdown        
+        = render 'layouts/nav_departements'
+      %li
+        = link_to t('layouts.nav.statuses'), statuses_path
+
+    - unless current_user
+      = render 'layouts/nav_login'      
+    - else
+      = render 'layouts/nav_logout'
+    
+

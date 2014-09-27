@@ -1,0 +1,54 @@
+= cache [@incident, current_user] do
+  .row
+    .col-xs-12
+      .panel.panel-default
+        .panel-heading
+          %b= @incident.title
+  .row
+    .col-xs-6
+      .panel.panel-default
+        .panel-heading
+          From
+        .panel-body        
+          = @incident.requestor_name + " (" + @incident.requestor_email + ")"
+    .col-xs-6
+      .panel.panel-default
+        .panel-heading
+          To
+        .panel-body
+          %b= t('common.assigned')
+          = render 'assigned'
+          %b= t('common.status')
+          = render 'status'
+          %br
+          = @incident.departement.name
+  .row
+    .col-xs-12
+      .panel.panel-default
+        .panel-heading
+          Subject
+        .panel-body
+          = @incident.body
+
+  %ul#incident_tab.nav.nav-tabs{ role: "tablist" }
+    %li
+      %a.active{ href: "#comments", role: "tab", data: {toggle: "tab", turbolinks: { track: "false"}}}= t('common.comments')
+    %li
+      %a{ href: "#history", role: "tab", data: {toggle: "tab", turbolinks: { track: "false"}}}= t('common.history')
+
+  .tab-content.well
+    = cache @incident.comments do
+      #comments.tab-pane.active
+        = render 'comments_new'
+        .panel.panel-default
+          .panel-heading
+            Last comments
+          .panel-body
+            %ol{ reversed: true }
+              = render @incident.comments
+        
+    = cache @activities do
+      #history.tab-pane
+        = render 'history'
+
+  = link_to 'Back', incidents_path, class: 'btn btn-default'

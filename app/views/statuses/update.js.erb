@@ -1,0 +1,6 @@
+$('h1').tooltip({
+  trigger: 'manual',
+  delay: { show: 0, hide: 500 },
+  title: 'Saved',
+}).tooltip('show');
+setTimeout (function() { $('h1').tooltip('hide')}, 1000);

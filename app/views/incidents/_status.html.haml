@@ -1,0 +1,6 @@
+- if current_user
+  = form_for @incident, html: {class: 'form'} do |f|
+    = f.select( :status_id, Status.all.collect {|s| [ s.name, s.id ] })
+    = f.submit t('common.save'), class: 'btn btn-default btn-xs'
+- else
+  = @incident.status.name

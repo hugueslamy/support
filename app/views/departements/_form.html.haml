@@ -1,0 +1,13 @@
+= form_for @departement, html: {role: 'form'}  do |f|
+  - if @departement.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@departement.errors.count, "error")} prohibited this departement from being saved:"
+      %ul
+        - @departement.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .actions
+    = f.submit t('common.save'), class: 'btn btn-default'

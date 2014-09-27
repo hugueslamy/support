@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @departement.name
+
+= link_to 'Edit', edit_departement_path(@departement)
+\|
+= link_to 'Back', departements_path

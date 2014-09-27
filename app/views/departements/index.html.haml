@@ -1,0 +1,17 @@
+%h1 Listing departements
+
+%table.table.table-striped
+  %tr
+    %th Name
+    %th
+    %th
+
+  - @departements.each do |departement|
+    %tr
+      %td= link_to departement.name, departement
+      %td= link_to 'Edit', edit_departement_path(departement)
+      %td= link_to 'Destroy', departement, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Departement', new_departement_path, class: 'btn btn-default'

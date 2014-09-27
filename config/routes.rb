@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  resources :statuses
+
+  devise_for :users
+  resources :departements
+
+  get 'incidents/:code', to: 'incidents#show', code:  /[A-Z]{3}-[\da-f]{2}-[A-Z]{3}-[\da-f]{2}/, as: 'code_incident'
+  resources :incidents do
+    resources :comments
+  end
+  
+  root to: "incidents#index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

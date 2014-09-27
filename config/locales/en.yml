@@ -20,4 +20,59 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  common:
+    assign: 'Take ownership' 
+    assigned: 'Assignee :'   
+    back: 'Back'
+    comments: 'Comments'
+    history: 'History'
+    save: 'Save'
+    status: 'Status :'
+  
+  activity:
+    comment:
+      commented_on: 'A comment has been created'
+    incident:
+      created: 'A new ticket has been created'
+      updated: 'The ticket has been updated'
+  departements:
+    new:
+      title: 'New departement'
+  incidents:
+    form:
+      select:
+        blank: 'Select a departement'
+  incident_mailer:
+    created:
+      code: 'Code'
+      subject: 'Your incident has been created'
+      title: 'Your incident has been created'
+      body: 'This email is to let you know that a tracking number is assigned and you can follow the history of the ticket at :'
+    new_comment:
+      code: 'Code'
+      subject: 'A new comment has been created for your incident'
+      title: 'A new comment has been created for your incident'
+      body: 'This email is to let you know that a comment has been added to your incident. To read it go to the following link at :'          
+    updated:
+      code: 'Code'
+      subject: 'The incident you submitted has been updated'
+      title: 'The incident you submitted has been updated'
+      body: 'This email is to let you know that your incident has been updated. To read it go to the following link at :'          
+  layouts:
+    nav:
+      closed_incidents: "View closed incidents"
+      create_new: "Create new"
+      departements: "Departements"
+      email: "Enter email"
+      incidents: "Incidents"
+      login: "Login"
+      logout: "Logout"
+      on_hold_incidents: "View on hold incidents"
+      opened_incident: "View opened incidents"
+      password: "Enter password"
+      salute: "Hello :"
+      search: "Search"
+      statuses: "Statuses"
+      submit: "Submit"
+      unassigned_incidents: "View unassign incidents"
+      view_all: "View all"

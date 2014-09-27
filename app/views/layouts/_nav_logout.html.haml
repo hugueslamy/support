@@ -1,0 +1,8 @@
+= form_for :user, url: destroy_user_session_path, html: {class: 'navbar-form navbar-right'}, method: :delete  do |f|
+  = t('layouts.nav.salute')
+  %b= current_user.email
+  .form-group
+    = f.submit t('layouts.nav.logout'), class: 'btn btn-default'
+
+
+

@@ -1,0 +1,18 @@
+%h1 Listing statuses
+
+.row
+  %b.col-xs-3= t('statuses.index.name')
+  %b.col-xs-2= t('statuses.index.initial')
+  %b.col-xs-2= t('statuses.index.on_hold')
+  %b.col-xs-2= t('statuses.index.closing')
+- @statuses.each do |status|
+  .row
+    .col-xs-3= link_to status.name, edit_status_path(status)
+    .col-xs-2= radio_button_tag 'initial', status.id, status.initial, class: 'initial'
+    .col-xs-2= check_box_tag 'holding-' + status.id.to_s, 1, false, data: {id: status.id}, checked: (status.holding ? 'checked' : nil), class: 'holding'
+    .col-xs-2= check_box_tag 'closing-' + status.id.to_s, 1, false, data: {id: status.id}, checked: (status.closing ? 'checked' : nil), class: 'closing'
+    .col-xs-1= link_to 'Destroy', status, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+.row
+  .col-xs-12
+    = link_to 'New Status', new_status_path, class: 'btn btn-default'

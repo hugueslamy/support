@@ -1,0 +1,9 @@
+= form_for :user, url: session_path(:user), html: {class: 'navbar-form navbar-right'}  do |f|
+  .form-group
+    = f.text_field :email, class: 'form-control', placeholder: t('layouts.nav.email')
+    = f.password_field :password, class: 'form-control', placeholder: t('layouts.nav.password'), autocomplete: 'off'
+    = f.submit t('layouts.nav.login'), class: 'btn btn-default'
+  =link_to t('layouts.nav.register'), new_user_registration_path, class: 'btn btn-default'
+
+
+

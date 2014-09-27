@@ -1,0 +1,36 @@
+= cache @incidents do
+  %h1 Listing incidents
+
+  %table.table.table-stripped
+    %tr
+      %th Title
+      %th Requestor name
+      %th Requestor email
+      %th Departement
+      %th Code
+      %th Assignee
+      %th Status
+      %th
+      %th
+
+    - @incidents.each do |incident|
+      %tr
+        %td= link_to incident.title, incident
+        %td= incident.requestor_name
+        %td= incident.requestor_email
+        %td= incident.departement.name
+        %td= incident.code
+        - if incident.assignee
+          %td= incident.assignee.email
+        - else
+          %td
+            =form_for incident do |f|
+              = f.hidden_field :assignee_id, value: current_user.id
+              = f.submit t('common.assign'), class: 'btn btn-default'
+        %td= incident.status.try(:name)
+        %td= link_to 'Edit', edit_incident_path(incident)
+        %td= link_to 'Destroy', incident, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  %br
+
+  = link_to 'New Incident', new_incident_path
